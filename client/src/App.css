@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap');
+
+body {
+  min-height: 100vh;
+  position: relative;
+  font-family: 'Noto Sans Display', sans-serif;
+}
+
+.height50 {
+  height: 50px;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.spaceBetween {
+  justify-content: space-between;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.paddingOver5 {
+  padding: 5px;
+}
+
+.marginOver5 {
+  margin: 5px;
+}
+
+.darkBackground {
+  background-color: rgb(124, 124, 158);
+}
+
+.whiteColor {
+  color: rgb(219, 219, 214)
+}
+
+.noDecorationList {
+  list-style: none;
+}
+
+.noPadding {
+  padding: 0%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+footer {
+  bottom:0;
+}
+
+.linkNoStyle {
+  text-decoration: none;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.width250px{
+  width: 250px;
+}
+
+.jusifyCenter {
+  justify-content: center;
+}
+
+.width95 {
+   width: 95%;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+form textarea {
+  height: 100px;
+}
+
+button {
+  height: 25px;
+  width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+
+
+
+
