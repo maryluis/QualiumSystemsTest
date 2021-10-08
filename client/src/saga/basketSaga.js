@@ -1,13 +1,24 @@
 import {takeLeading, put} from 'redux-saga/effects';
-import { getItemsTool} from "../tools";
-import { actionPutData, actionCartPut } from '../redux';
+import { actionCartPut, actionCartPutDelete, actionCartPutClear } from '../redux';
+
 
 function* addToBasketWorker(data) {
     yield put(actionCartPut(data.data));
 }
 
-function* basketWatcher(){ //watcher saga
-    yield takeLeading('CART_ADD', addToBasketWorker); //
+function* deleteFromBasketWorker(data) {
+    yield put(actionCartPutDelete(data.data))
+}
+
+function* clearBasketWorker() {
+    yield put(actionCartPutClear())
+}
+
+
+function* basketWatcher(){ 
+    yield takeLeading('CART_ADD', addToBasketWorker);
+    yield takeLeading('CART_DELETE', deleteFromBasketWorker);  
+    yield takeLeading('CART_CLEAR', clearBasketWorker); 
 }
 
 export { basketWatcher};

@@ -3,19 +3,14 @@ function basketReducer(state, action) {
     let data = action.data || {};
 
     if(state === undefined){
-        // if(localStorage.authToken && localStorage.basket) {
-        //     state =  JSON.parse(localStorage.basket);
-        // }
-        // else { 
-            state = {
-                fullPrice: 0,
-                fullCount: 0,
-            }
-        // }
+        state = {
+            fullPrice: 0,
+            fullCount: 0,
+            data: {},
+        }
     }
 
     if (action.type === "PUT_TO_BASKET") {
-        debugger
         state = {
             ...state,     
             fullCount: (state.fullCount || 0) + 1,
@@ -26,44 +21,45 @@ function basketReducer(state, action) {
                     id: data.id,
                     description: data.description,
                     title: data.title,
-                    count: ((state[data.id] ? state[data.id].count : 0) + 1  )},
-                }
+                    count: (state.data[data.id] ? state.data[data.id].count : 0) + 1  
+                },
+            },
         };
     }
 
-    // if (type === "CART_DELETE") {
-    //     if((state[id].count - 1) === 0) {
-    //         state = {
-    //             ...state,
-    //             price: state.price - price,       
-    //         }
-    //         delete state[id]
-    //         state.price === 0 && delete state.price;
-    //     } else {
-    //         state = {
-    //             ...state,
-    //             price: state.price - price,
-    //             [id] : {
-    //                 price: price,
-    //                 id: id,
-    //                 description: description,
-    //                 title: title,
-    //                 count: (state[id].count - 1) 
-    //             },
+    if (action.type === "DELETE_FROM_BASKET") {
+        if((state.data[data.id].count - 1) === 0) {
+            state = {
+                ...state,
+                fullCount: state.fullCount - 1,
+                fullPrice: Math.round(((state.fullPrice - data.price ) - Number.EPSILON) * 100) / 100,
+            }
+            delete state.data[data.id];
+            // state.fullPrice === 0 && delete state.price;
+        } else {
+            state = {
+                ...state,
+                fullCount: state.fullCount - 1,
+                fullPrice: Math.round(((state.fullPrice - data.price ) + Number.EPSILON) * 100) / 100,   
+                data:{...state.data,
+                    [data.id]:{ price: data.price,
+                        id: data.id,
+                        description: data.description,
+                        title: data.title,
+                        count: (state.data[data.id] ? state.data[data.id].count : 0) - 1  
+                    },  
+                },
+            }
+        }
+    }
+    if (action.type === "CART_PUT_CLEAR") {
+        state = {
+            fullPrice: 0,
+            fullCount: 0,
+            data: {},
+        }
+    }
 
-    //         }
-    //     }
-
-    // }
-    // if (type === "CART_CLEAR") {
-    //     state = {}
-    // }
-    // if(!state.price){
-    //     localStorage.removeItem("basket");
-    // } else {
-
-    //     localStorage.basket = JSON.stringify(state)
-    // }
 
     return state;
 }
@@ -90,7 +86,7 @@ const actionCartPut = ((data) => {
     )
 })
 
-const actionCartDelete = (title, price, id, description, image, count) => ({
+const actionCartDelete = (title, price, id, description, count) => ({
     type: "CART_DELETE",
     data: {
         id: id,
@@ -101,10 +97,21 @@ const actionCartDelete = (title, price, id, description, image, count) => ({
     }
 });
 
-// const actionCartClear = (count, price) => ({
-//     type: "CART_CLEAR",
-//     count,
-//     price
-// });
+const actionCartPutDelete = ((data) => {
+    return(
+        {type: "DELETE_FROM_BASKET", data}
+    )
+})
 
-export {basketReducer, actionCartAdd, actionCartDelete, actionCartPut};
+const actionCartClear = () => {
+    return(
+        {type: "CART_CLEAR"}
+    )
+};
+const actionCartPutClear = () => {
+    return(
+        {type: "CART_PUT_CLEAR"}
+    )
+};
+
+export {basketReducer, actionCartAdd, actionCartDelete, actionCartPut, actionCartPutDelete, actionCartPutClear, actionCartClear};

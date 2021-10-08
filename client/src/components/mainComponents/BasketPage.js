@@ -1,27 +1,38 @@
 import { ItemCart } from ".";
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { actionCartAdd} from "../../redux";
+import { actionCartAdd, actionCartClear, actionCartDelete} from "../../redux";
 import { useEffect } from "react";
 import { objToArr } from "../../tools";
-import { ItemCart } from ".";
 
-export const BasketPage = ({items = [], state, addItem, basket}) => {
 
-    useEffect(() => getData(), [])
+export const BasketPage = ({items = [], addItem, basket, deleteItem, clearBasket}) => {
 
     return(
-        <div className="flex column width100">
-            <button onClick={() => console.log(state)}>state</button>
-            <input className="marginOver5" type="text" placeholder="Search"/>
+        <div className="flex column width100 alignCenter">
+            {items.length > 0 ? 
             <div className="flex wrap width100 jusifyCenter">
+                <div className="flex wrap width100 jusifyCenter">
                 {items.length > 0 && items.map((item) => 
-                    <div className="flex column spaceBetween width250px padding15 alignCenter darkBorder">
+                    <div key = {item.id} className="flex column spaceBetween width250px padding15 alignCenter darkBorder">
                         <ItemCart item={item} key = {item.id}/>
-                         <button disabled={basket.data[item.id]} onClick={() => addItem(item.title, +item.price, item.id, item.description)} className= {basket && basket.data[item.id] ? "disabletButton" : "darkButton whiteColor"}>Want!</button>
+                        <div className="flex alignCenter">
+                        <button onClick={() => addItem(item.title, +item.price, item.id, item.description)} className="darkButton whiteColor">+</button>
+                        <span className="paddingOver5">{item.count}</span>
+                        <button onClick={() => deleteItem(item.title, +item.price, item.id, item.description)} className="darkButton whiteColor">-</button>
+                        </div>
                     </div>
                 )}
+                </div>
+                <div className="flex column alignCenter">
+                    <h3>Total {basket.fullPrice}$ for {basket.fullCount} items</h3>
+                    <button className="darkButton whiteColor" onClick={() => clearBasket()}>Clear</button>
+                </div>
             </div>
+            : 
+            <div>
+                <h5>Your basket is empty now. </h5>
+            </div>}         
         </div>
     )
 }
@@ -34,7 +45,9 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch)=> bindActionCreators({
     addItem: actionCartAdd,
+    deleteItem: actionCartDelete,
+    clearBasket: actionCartClear,
 }, dispatch);
 
 
-export const CMainPage = connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export const CBasketPage = connect(mapStateToProps, mapDispatchToProps)(BasketPage);

@@ -1,6 +1,5 @@
 import {Route, Switch} from 'react-router-dom';
-import { CreatePage } from './mainComponents';
-import {CMainPage} from "./mainComponents";
+import { CreatePage, CMainPage, CBasketPage } from './mainComponents';
 
 
 export const Main = ({}) => {
@@ -10,6 +9,7 @@ export const Main = ({}) => {
             <Switch>
                 <Route path = "/create" component = {CreatePage}/>
                 <Route path = "/main" component = {CMainPage}/>
+                <Route path = "/basket" component = {CBasketPage}/>
             </Switch>
         </main>
     )
