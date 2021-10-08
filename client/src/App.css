@@ -55,7 +55,7 @@ body {
 }
 
 footer {
-  bottom:0;
+  bottom:-55px;
 }
 
 .linkNoStyle {
@@ -95,7 +95,33 @@ button {
   border-radius: 4px;
 }
 
+.smallLetters {
+  font-size: 12px;
+}
 
+.padding15{
+  padding: 15px
+}
 
+.darkBorder {
+  border: 2px solid rgb(124, 124, 158);
+}
+.marginBottom {
+  margin-bottom:50px;
+}
 
+.wrap {
+  flex-wrap: wrap;
+}
 
+.paddingSides{
+  padding: 0 20px;
+}
+
+.darkButton {
+  background-color: rgb(124, 124, 158);
+}
+
+.heignt230px {
+  height:230px;
+}

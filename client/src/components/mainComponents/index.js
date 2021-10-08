@@ -1,4 +1,6 @@
 import { CreatePage } from "./CreatePage";
+import { ItemCart } from "./ItemCart";
+import { CMainPage } from "./MainPage";
 
 
-export {CreatePage};
+export {CreatePage, ItemCart, CMainPage};

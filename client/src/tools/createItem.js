@@ -14,7 +14,6 @@ export function CreateItemObj(title, price, description){
 
 
 export async function postItem(url = '', data = {}) {
-    debugger
     const response = await fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       mode: 'cors', // no-cors, *cors, same-origin
@@ -28,7 +27,6 @@ export async function postItem(url = '', data = {}) {
       referrerPolicy: 'no-referrer', // no-referrer, *client
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
-    debugger
     return await response.json(); 
    
   }

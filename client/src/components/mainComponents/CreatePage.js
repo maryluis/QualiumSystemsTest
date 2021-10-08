@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createNewItem, url } from "../../tools";
+import { createNewItem, urlItems } from "../../tools";
 
 export const CreatePage = ({}) => {
 
@@ -15,9 +15,9 @@ export const CreatePage = ({}) => {
                 <input onChange={(e) => ChangeTitleValue(e.target.value)} className="width95 marginOver5 paddingOver5" type="text" placeholder="title"/>
                 <input onChange={(e) => ChangePriceValue(e.target.value)} className="width95 marginOver5 paddingOver5" type="number" placeholder="price"/>
                 <textarea onChange={(e) => ChangeDescValue(e.target.value)} className="width95 marginOver5 paddingOver5" placeholder="description"/>
-                <button onClick = {(e) => { 
+                <button className="darkButton whiteColor" onClick = {(e) => { 
                     e.preventDefault()
-                    createNewItem(titleValue, priceValue, descriptionValue, url)}}>Save</button>
+                    createNewItem(titleValue, priceValue, descriptionValue, urlItems)}}>Save</button>
             </form>
         </div>
     )
