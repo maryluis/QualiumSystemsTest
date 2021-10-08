@@ -1,4 +1,4 @@
-import {filterItems} from "../tools";
+import {filterItems, filterPagination, sortByPrice} from "../tools";
 
 function dataReducer(state, action) {
     if(state === undefined) {
@@ -12,12 +12,12 @@ function dataReducer(state, action) {
     if(action.type === 'PUT_DATA') {
         return({
             data: [...action.payload],
-            filteredData: [...action.payload]
+            filteredData: filterPagination(sortByPrice(action.payload, 1))
         })
     } if(action.type === 'PUT_FILTERED_DATA') {
         return({
             data: state.data,
-            filteredData: filterItems(action.data, state.data)
+            filteredData: filterPagination(filterItems(action.data.string, sortByPrice(state.data, action.data.sortData)))
         })
     }
       return state;
@@ -34,9 +34,9 @@ const actionGetData = () => {
     {type: 'GET_DATA'})
 }
 
-const actionFilterData = (filterString) => {
+const actionFilterData = (filterString, sortData) => {
     return(
-        {type: 'FILTER_DATA', filterString}
+        {type: 'FILTER_DATA', data: { string: filterString, sortData: sortData}}
     )
 }
 const actionPutFilterData = (data) => {

@@ -1,4 +1,4 @@
-import { ItemCart } from ".";
+import { CItemCart } from ".";
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
 import { actionCartAdd, actionCartClear, actionCartDelete} from "../../redux";
@@ -14,7 +14,7 @@ export const BasketPage = ({items = [], addItem, basket, deleteItem, clearBasket
                 <div className="flex wrap width100 jusifyCenter">
                 {items.length > 0 && items.map((item) => 
                     <div key = {item.id} className="flex column spaceBetween width250px padding15 alignCenter darkBorder">
-                        <ItemCart item={item} key = {item.id}/>
+                        <CItemCart item={item} key = {item.id}/>
                         <div className="flex alignCenter">
                         <button onClick={() => addItem(item.title, +item.price, item.id, item.description)} className="darkButton whiteColor">+</button>
                         <span className="paddingOver5">{item.count}</span>

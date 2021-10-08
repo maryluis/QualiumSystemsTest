@@ -4,11 +4,11 @@ import { Link } from "react-router-dom"
 
 export const Header = ({basketPrice}) => {
     const navigation = [
-        {title: "Main", path:"/main"},
+        {title: "Main", path:"/"},
         {title: "Create", path:"/create"},
     ]
     return(
-        <header className="height50 width100 flex spaceBetween alignCenter darkBackground whiteColor">
+        <header className="height50 width100 flex spaceBetween alignCenter darkBackground whiteColor marginBottom">
             <nav>
                 <ul className="noDecorationList flex noPadding">
                     {navigation.map(el => 

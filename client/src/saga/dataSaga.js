@@ -9,7 +9,7 @@ function* getDataWorker() {
 
 function* filterDataWorker(data) {
     yield delay(1000);
-    yield put(actionPutFilterData(data.filterString));
+    yield put(actionPutFilterData(data.data));
 }
 
 function* getDataWatcher(){ //watcher saga

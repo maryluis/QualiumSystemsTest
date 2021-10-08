@@ -6,6 +6,10 @@ body {
   font-family: 'Noto Sans Display', sans-serif;
 }
 
+select option:hover {
+  background-color: rgb(124, 124, 158);
+}
+
 .height50 {
   height: 50px;
 }
@@ -29,9 +33,19 @@ body {
 .paddingOver5 {
   padding: 5px;
 }
+.paddingOver15 {
+  padding:15px;
+}
 
 .marginOver5 {
   margin: 5px;
+}
+.marginOver15px{
+  margin: 15px;
+}
+
+.width20 {
+  width: 20px;
 }
 
 .darkBackground {
@@ -39,8 +53,23 @@ body {
 }
 
 .whiteColor {
+  color: rgb(219, 219, 214);
+}
+
+.green {
+  background-color: rgb(44, 182, 104);
+  border-color: rgb(219, 219, 214);
   color: rgb(219, 219, 214)
 }
+
+.danger {
+  background-color: rgb(235, 41, 41); 
+}
+
+select.darkHover option:hover {
+  background-color: rgb(124, 124, 158);
+}
+
 
 .noDecorationList {
   list-style: none;
