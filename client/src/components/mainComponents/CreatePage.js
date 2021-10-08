@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
 import { createNewItem, urlItems } from "../../tools";
 
 export const CreatePage = ({}) => {
@@ -6,6 +7,7 @@ export const CreatePage = ({}) => {
     const [titleValue, ChangeTitleValue] = useState("");
     const [priceValue, ChangePriceValue] = useState(0);
     const [descriptionValue, ChangeDescValue] = useState("");
+    const history = useHistory()
 
 
     return(
@@ -17,7 +19,8 @@ export const CreatePage = ({}) => {
                 <textarea onChange={(e) => ChangeDescValue(e.target.value)} className="width95 marginOver5 paddingOver5" placeholder="description"/>
                 <button className="darkButton whiteColor" onClick = {(e) => { 
                     e.preventDefault()
-                    createNewItem(titleValue, priceValue, descriptionValue, urlItems)}}>Save</button>
+                    createNewItem(titleValue, priceValue, descriptionValue, urlItems)
+                    history.push("/main")}}>Save</button>
             </form>
         </div>
     )

@@ -1,5 +1,5 @@
 
-function dataReducer(state = {}, action) {
+function dataReducer(state = [], action) {
 
     if(action.type === 'PUT_DATA') {
             return([...action.payload])

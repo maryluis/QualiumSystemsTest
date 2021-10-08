@@ -125,3 +125,8 @@ button {
 .heignt230px {
   height:230px;
 }
+
+.disabledButton {
+  background-color: rgb(219, 219, 214);
+  color: rgb(124, 124, 158)
+}

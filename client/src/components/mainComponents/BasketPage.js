@@ -1,10 +1,12 @@
 import { ItemCart } from ".";
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
-import { actionGetData, actionCartAdd} from "../../redux";
+import { actionCartAdd} from "../../redux";
 import { useEffect } from "react";
+import { objToArr } from "../../tools";
+import { ItemCart } from ".";
 
-export const MainPage = ({items = [], getData, state, addItem, basket}) => {
+export const BasketPage = ({items = [], state, addItem, basket}) => {
 
     useEffect(() => getData(), [])
 
@@ -14,9 +16,9 @@ export const MainPage = ({items = [], getData, state, addItem, basket}) => {
             <input className="marginOver5" type="text" placeholder="Search"/>
             <div className="flex wrap width100 jusifyCenter">
                 {items.length > 0 && items.map((item) => 
-                    <div  key = {item.id} className="flex column spaceBetween width250px padding15 alignCenter darkBorder">
-                        <ItemCart item={item}/>
-                         <button disabled={basket[item.id]} onClick={() => addItem(item.title, +item.price, item.id, item.description)} className= {basket[item.id] ? "disabletButton" : "darkButton whiteColor"}>Want!</button>
+                    <div className="flex column spaceBetween width250px padding15 alignCenter darkBorder">
+                        <ItemCart item={item} key = {item.id}/>
+                         <button disabled={basket.data[item.id]} onClick={() => addItem(item.title, +item.price, item.id, item.description)} className= {basket && basket.data[item.id] ? "disabletButton" : "darkButton whiteColor"}>Want!</button>
                     </div>
                 )}
             </div>
@@ -26,12 +28,11 @@ export const MainPage = ({items = [], getData, state, addItem, basket}) => {
 
 const mapStateToProps = (state) => ({
     state: state,  
-    items: state.data,
+    items: objToArr(state.basket.data),
     basket: state.basket
 });
 
 const mapDispatchToProps = (dispatch)=> bindActionCreators({
-    getData: actionGetData,
     addItem: actionCartAdd,
 }, dispatch);
 
