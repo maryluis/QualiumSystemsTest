@@ -2,7 +2,7 @@ import {Route, Switch} from 'react-router-dom';
 import { CreatePage, CMainPage, CBasketPage } from './mainComponents';
 
 
-export const Main = ({}) => {
+export const Main = () => {
 
     return(
         <main className="marginBottom">

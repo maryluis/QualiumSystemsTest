@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useHistory } from "react-router";
 import { createNewItem, urlItems } from "../../tools";
 
-export const CreatePage = ({}) => {
+export const CreatePage = () => {
 
     const [titleValue, ChangeTitleValue] = useState("");
     const [priceValue, ChangePriceValue] = useState(0);

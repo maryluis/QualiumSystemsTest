@@ -2,7 +2,6 @@ import { ItemCart } from ".";
 import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
 import { actionCartAdd, actionCartClear, actionCartDelete} from "../../redux";
-import { useEffect } from "react";
 import { objToArr } from "../../tools";
 
 
