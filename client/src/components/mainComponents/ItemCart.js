@@ -26,13 +26,10 @@ export const ItemCart = ({item, editData}) => {
 }
 
 const mapStateToProps = (state) => ({
-    // editData: state.edit,
 });
 
 const mapDispatchToProps = (dispatch)=> bindActionCreators({
     editData: actionEdit,
-    // addItem: actionCartAdd,
-    // searchItem: actionFilterData,
 }, dispatch);
 
 

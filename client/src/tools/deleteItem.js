@@ -6,9 +6,4 @@ export const deleteItem = async (url) =>{
         },
         body: null
     });
- 
-//    const data = await response.json( );
- 
-//    // now do whatever you want with the data  
-//     console.log(data);
  };

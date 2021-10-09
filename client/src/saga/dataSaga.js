@@ -8,14 +8,10 @@ function* getDataWorker(data) {
     yield put(actionPutData(newData));
 }
 
-// function* filterDataWorker(data) {
-//     yield delay(1000);
-//     yield put(actionPutFilterData(data.data));
-// }
+
 
 function* getDataWatcher(){ //watcher saga
     yield takeEvery('GET_DATA', getDataWorker); 
-    // yield takeLatest('FILTER_DATA', filterDataWorker)
 }
 
 

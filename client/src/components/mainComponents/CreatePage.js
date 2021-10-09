@@ -58,13 +58,3 @@ const mapDispatchToProps = (dispatch)=> bindActionCreators({
 
 export const CCreatePage = connect(mapStateToProps, mapDispatchToProps)(CreatePage);
 
-// const editMapStateToProps = (state) => ({
-//     editData: state.edit,
-// });
-
-// const editMapDispatchToProps = (dispatch)=> bindActionCreators({
-//     deleteData: actionDelete
-// }, dispatch);
-
-
-// export const CEditPage = connect(editMapStateToProps, editMapDispatchToProps)(CreatePage);

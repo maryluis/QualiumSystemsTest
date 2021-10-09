@@ -72,7 +72,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch)=> bindActionCreators({
     getData: actionGetData,
     addItem: actionCartAdd,
-    // searchItem: actionFilterData,
 }, dispatch);
 
 
