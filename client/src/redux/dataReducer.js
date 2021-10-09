@@ -1,25 +1,19 @@
-import {filterItems, filterPagination, sortByPrice} from "../tools";
+// import {filterItems, filterPagination, sortByPrice} from "../tools";
 
 function dataReducer(state, action) {
     if(state === undefined) {
-        return(
-            {
-                data:[],
-                filteredData: []
-            }
-        )
+        return []
     }
     if(action.type === 'PUT_DATA') {
-        return({
-            data: [...action.payload],
-            filteredData: filterPagination(sortByPrice(action.payload, 1))
-        })
-    } if(action.type === 'PUT_FILTERED_DATA') {
-        return({
-            data: state.data,
-            filteredData: filterPagination(filterItems(action.data.string, sortByPrice(state.data, action.data.sortData)))
-        })
-    }
+        return { data: [...action.payload.items],
+                pages: action.payload.pages};     
+    } 
+    // if(action.type === 'PUT_FILTERED_DATA') {
+    //     return({
+    //         data: state.data,
+    //         filteredData: filterPagination(filterItems(action.data.string, sortByPrice(state.data, action.data.sortData)))
+    //     })
+    // }
       return state;
 }
 
@@ -29,22 +23,27 @@ const actionPutData = (payload) => {
 };
 
 
-const actionGetData = () => { 
+const actionGetData = (page, query, sortType) => { 
     return(
-    {type: 'GET_DATA'})
+    {type: 'GET_DATA', 
+    data: {
+        page: page,
+        query: query,
+        sortType: sortType
+    }})
 }
 
-const actionFilterData = (filterString, sortData) => {
-    return(
-        {type: 'FILTER_DATA', data: { string: filterString, sortData: sortData}}
-    )
-}
-const actionPutFilterData = (data) => {
-    return(
-        {type: 'PUT_FILTERED_DATA', data}
-    )
-}
+// const actionFilterData = (filterString, sortData) => {
+//     return(
+//         {type: 'FILTER_DATA', data: { string: filterString, sortData: sortData}}
+//     )
+// }
+// const actionPutFilterData = (data) => {
+//     return(
+//         {type: 'PUT_FILTERED_DATA', data}
+//     )
+// }
     
 
 
-export {dataReducer, actionPutData, actionGetData, actionFilterData, actionPutFilterData};
+export {dataReducer, actionPutData, actionGetData};

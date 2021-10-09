@@ -1,20 +1,21 @@
-import {takeEvery, put, call, takeLatest} from 'redux-saga/effects';
-import { getItemsTool, delay} from "../tools";
-import { actionPutData, actionPutFilterData } from '../redux';
+import {takeEvery, put, call} from 'redux-saga/effects';
+import { getItemsTool} from "../tools";
+import { actionPutData } from '../redux';
 
-function* getDataWorker() {
-    const data = yield call(getItemsTool);
-    yield put(actionPutData(data));
+function* getDataWorker(data) {
+    let queryData = data.data
+    let newData = yield call(() => getItemsTool(queryData.page, queryData.query, queryData.sortType));
+    yield put(actionPutData(newData));
 }
 
-function* filterDataWorker(data) {
-    yield delay(1000);
-    yield put(actionPutFilterData(data.data));
-}
+// function* filterDataWorker(data) {
+//     yield delay(1000);
+//     yield put(actionPutFilterData(data.data));
+// }
 
 function* getDataWatcher(){ //watcher saga
     yield takeEvery('GET_DATA', getDataWorker); 
-    yield takeLatest('FILTER_DATA', filterDataWorker)
+    // yield takeLatest('FILTER_DATA', filterDataWorker)
 }
 
 

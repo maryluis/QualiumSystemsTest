@@ -3,7 +3,7 @@ export function CreateItemObj(title, price, description){
     return(
         {
             title: title,
-            price: price,
+            price: +price,
             description: description,
             id: Date.now()
         }
