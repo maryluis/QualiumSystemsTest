@@ -12,8 +12,7 @@ export const MainPage = ({items = [], getData, pages,  data, state, addItem, bas
     const [sortType, changeType] = useState("asc");
     const [searchValue, changeValue] = useState("");
     const history = useHistory();
-    useEffect(() => {
-        
+    useEffect(() => {   
             getData(page, searchValue, sortType)
             return
 
@@ -41,10 +40,20 @@ export const MainPage = ({items = [], getData, pages,  data, state, addItem, bas
                 )}
             </div>
             <div className="flex">
-                <span className= {`textCenter marginOver15px darkBorder paddingOver5 ${page === 1 ? "whiteBackground" : "darkBackground whiteColor"}`} onClick={() => changePage(page - 1)}>
+                <span  
+                    className= {`textCenter marginOver15px darkBorder paddingOver5 ${page === 1 ? "whiteBackground" : "darkBackground whiteColor"}`}
+                    onClick={() => { 
+                        if(page !== 1){
+                        changePage(page - 1)}
+                    }}>
                     Prev
                 </span>
-                <span className= {`textCenter marginOver15px darkBorder paddingOver5 ${page === pages ? "whiteBackground" : "darkBackground whiteColor"}`} onClick={() => changePage(page + 1)}>
+                <span 
+                    className= {`textCenter marginOver15px darkBorder paddingOver5 ${page === pages ? "whiteBackground" : "darkBackground whiteColor"}`}
+                    onClick={() => {
+                        if(page !== pages) {
+                        changePage(page + 1)}
+                    }}>
                     Next
                 </span>
             </div>

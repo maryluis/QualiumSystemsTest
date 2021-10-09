@@ -1,11 +1,13 @@
-export function CreateItemObj(title, price, description){
+import { urlItems } from ".";
+
+export function CreateItemObj(title, price, description, id){
 
     return(
         {
             title: title,
             price: +price,
             description: description,
-            id: Date.now()
+            id: id || Date.now()
         }
     )
 }
@@ -31,7 +33,7 @@ export async function postItem(url = '', data = {}) {
    
   }
 
-  export function createNewItem(title, price, description, url) {
-      postItem(url, CreateItemObj(title, price, description));
+  export function createNewItem(title, price, description) {
+      postItem(urlItems, CreateItemObj(title, price, description));
   }
   

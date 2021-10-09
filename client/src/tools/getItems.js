@@ -10,9 +10,19 @@ export function filterTitle(data, query) {
 
 export async function getItemsTool(page, query="", order, limit=10) {
     const response = await fetch(urlSearch(page, query, order, limit=10));  
-    let pages = Math.floor(Math.round(+response.headers.get('X-Total-Count') / limit));
-     let data= await response.json();
-     let filteredData = filterTitle(data, query);
-     return {items: filteredData,
+    let data= await response.json();
+
+    let filteredData = filterTitle(data, query);
+    let pages;
+    if(query.length > 0){
+        pages = Math.ceil(filteredData.length / limit);
+    } else {
+        pages = Math.ceil(+response.headers.get('X-Total-Count') / limit)
+    }
+    if(pages === 0) {
+        pages = 1;
+    }
+
+    return {items: filteredData,
             pages: pages};
   }
