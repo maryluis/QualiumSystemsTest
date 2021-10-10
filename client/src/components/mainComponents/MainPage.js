@@ -5,7 +5,7 @@ import { actionGetData, actionCartAdd } from "../../redux";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-export const MainPage = ({items = [], getData, pages, addItem, basket}) => {
+export const MainPage = ({items = [], getData, pages=1, addItem, basket}) => {
 
 
     const [page, changePage] = useState(1);
