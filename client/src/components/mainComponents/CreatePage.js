@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { actionDelete } from "../../redux";
 
 
-export const CreatePage = ({editData, deleteData, state, save}) => {
+/// I use this big component for two routes - Edit and Create.
+
+export const CreatePage = ({editData, deleteData, save}) => {
 
     const [titleValue, ChangeTitleValue] = useState(editData.title);
     const [priceValue, ChangePriceValue] = useState(editData.price);
@@ -13,16 +15,21 @@ export const CreatePage = ({editData, deleteData, state, save}) => {
     const history = useHistory()
 
     useEffect(() => {
+        /// I put the data for inputs at the Edit page to the reducer and take it then.
         if(history.location.pathname ==="/create") {
+            // it's for case if you lokated at the edit page and then went to the create page.
+            // The reducer will still have data from edit item and we have to delete it.
             ChangeTitleValue("");
             ChangePriceValue("");
             ChangeDescValue("");
             deleteData()
         } 
         if ((history.location.pathname ==="/edit") && (!titleValue || ! priceValue || !descriptionValue)) {
+            // if you will reload Edit page it will send you to the main page, because it will not have data for edit.
             history.push("/")
         }
-        return deleteData
+       
+        return deleteData  // when this component will unmount we need to delete data item from the reducer
     }, [history.location.pathname])
 
     return(
@@ -38,7 +45,7 @@ export const CreatePage = ({editData, deleteData, state, save}) => {
                 className={!titleValue || !priceValue || !descriptionValue || descriptionValue.length > 600 || titleValue.length > 70 ? "disabletButton" : "darkButton whiteColor" }
                 onClick = {(e) => { 
                     e.preventDefault()
-                    save(titleValue, priceValue, descriptionValue, editData.id)
+                    save(titleValue, priceValue, descriptionValue, editData.id) // this function is differend for different page
                     history.push("/")}}>Save</button>
             </form>
         </div>
@@ -48,7 +55,6 @@ export const CreatePage = ({editData, deleteData, state, save}) => {
 
 const mapStateToProps = (state) => ({
     editData: state.edit,
-    state: state
 });
 
 const mapDispatchToProps = (dispatch)=> bindActionCreators({

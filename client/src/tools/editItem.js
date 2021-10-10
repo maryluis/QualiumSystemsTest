@@ -13,9 +13,6 @@ export const editItem = async (id, data) =>{
         body: JSON.stringify(data)
     });
    const newData = await response.json( );
- 
-   // now do whatever you want with the data  
-    console.log(newData);
  };
 
  export function editItemPut(title, price, description, id) {

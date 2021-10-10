@@ -15,10 +15,10 @@ export async function getItemsTool(page, query="", order, limit=10) {
         response = await fetch(urlSearch(page, query, order, limit=10));  
         data= await response.json();
     } else {
-        response = await fetch(urlItems);
-        data = await response.json();
+        response = await fetch(urlItems); // I know that take all items isn't a good idea, but
+        data = await response.json(); // the backend can't search by title, just by all keys. 
     }
-    let filteredData = filterTitle(data, query);
+    let filteredData = filterTitle(data, query); // So I take all items and search query here.
     let pages;
     if(query.length > 0){
         pages = Math.ceil(filteredData.length / limit);

@@ -5,7 +5,7 @@ import { actionGetData, actionCartAdd } from "../../redux";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 
-export const MainPage = ({items = [], getData, pages,  data, state, addItem, basket, searchItem}) => {
+export const MainPage = ({items = [], getData, pages, addItem, basket}) => {
 
 
     const [page, changePage] = useState(1);
@@ -13,9 +13,8 @@ export const MainPage = ({items = [], getData, pages,  data, state, addItem, bas
     const [searchValue, changeValue] = useState("");
     const history = useHistory();
     useEffect(() => {   
-            getData(page, searchValue, sortType)
+            getData(page, searchValue, sortType);
             return
-
     }, [page, searchValue, sortType, getData]);
 
 
@@ -63,7 +62,6 @@ export const MainPage = ({items = [], getData, pages,  data, state, addItem, bas
 }
 
 const mapStateToProps = (state) => ({
-    state: state,  
     pages: state.data.pages,
     items: state.data.data,
     basket: state.basket,

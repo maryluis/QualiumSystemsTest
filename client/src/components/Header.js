@@ -1,4 +1,3 @@
-import { bindActionCreators } from "redux";
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom"
 
@@ -7,6 +6,7 @@ export const Header = ({basketPrice}) => {
         {title: "Main", path:"/"},
         {title: "Create", path:"/create"},
     ]
+
     return(
         <header className="height50 width100 flex spaceBetween alignCenter darkBackground whiteColor marginBottom">
             <nav>
@@ -28,12 +28,9 @@ export const Header = ({basketPrice}) => {
 }
 
 const mapStateToProps = (state) => ({
-    state: state,  
     basketPrice: state.basket.fullPrice 
 });
 
-const mapDispatchToProps = (dispatch)=> bindActionCreators({
-}, dispatch);
 
 
-export const CHeader = connect(mapStateToProps, mapDispatchToProps)(Header);
+export const CHeader = connect(mapStateToProps)(Header);

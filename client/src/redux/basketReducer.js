@@ -35,7 +35,6 @@ function basketReducer(state, action) {
                 fullPrice: Math.round(((state.fullPrice - data.price ) - Number.EPSILON) * 100) / 100,
             }
             delete state.data[data.id];
-            // state.fullPrice === 0 && delete state.price;
         } else {
             state = {
                 ...state,

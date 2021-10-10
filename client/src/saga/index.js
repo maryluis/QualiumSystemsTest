@@ -5,7 +5,7 @@ import {basketWatcher} from "./basketSaga";
 import {editWatcher} from "./editSaga";
 
 
-function* rootSaga(){ //корневая
+function* rootSaga(){ 
     yield all([
         getDataWatcher(),
         basketWatcher(),

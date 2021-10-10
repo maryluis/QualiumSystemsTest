@@ -37,7 +37,6 @@ export const BasketPage = ({items = [], addItem, basket, deleteItem, clearBasket
 }
 
 const mapStateToProps = (state) => ({
-    state: state,  
     items: objToArr(state.basket.data),
     basket: state.basket
 });
