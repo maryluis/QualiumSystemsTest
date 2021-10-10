@@ -1,7 +1,7 @@
 
 
 
-to run sercver use:
+to run server use:
 cd ./json-server
 npx json-server --watch db.json - for first time
 npm start - others time
