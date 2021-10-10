@@ -95,6 +95,60 @@
       "price": 15,
       "description": "Neve Campbell leads an all-star cast in this iconic slasher thriller that launched the Scream franchise and breathed new life into the horror genre. After a series of mysterious deaths befalls their small town, an offbeat group of friends led by Sidney Prescott (Campbell) become the target of a masked killer. As the body count rises, Sidney and her friends turn to the “rules” of horror films to help navigate the real-life terror they’re living in. ",
       "id": 1633789273716
+    },
+    {
+      "title": "The Pacifier",
+      "price": 6,
+      "description": "A special agent finds himself in charge of young children.",
+      "id": 1633852700076
+    },
+    {
+      "title": "The Protégé",
+      "price": 21,
+      "description": "Rescued as a child by the legendary assassin Moody (Samuel L. Jackson) and trained in the family business, Anna (Maggie Q) is the world's most skilled contract killer. But when Moody -- the man who was like a father to her and taught her everything she needs to know about trust and survival -- is brutally killed, Anna vows revenge. As she becomes entangled with an enigmatic killer (Michael Keaton) whose attraction to her goes way beyond cat and mouse, their confrontation turns deadly and the loose ends of a life spent killing will weave themselves ever tighter.",
+      "id": 1633852726707
+    },
+    {
+      "title": "COCO",
+      "price": 10,
+      "description": "Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel’s family history.",
+      "id": 1633852756353
+    },
+    {
+      "title": "A Godwink Christmas: Second Chance, First Love",
+      "price": 15,
+      "description": "After 15 years, Pat moves home from Hawaii with his two sons and through a series of coincidences, or Godwinks, ends up stuck in traffic next to his high school sweetheart, Margie at Christmas.",
+      "id": 1633852791609
+    },
+    {
+      "title": "Cats (2019)",
+      "price": 7,
+      "description": "HD. Andrew Lloyd Webber's smash musical stars James Corden, Judi Dench, Jason Derulo, Idris Elba, Jennifer Hudson, Ian McKellen, Taylor Swift.",
+      "id": 1633852828838
+    },
+    {
+      "title": "Injustice [4K Ultra HD + Blu-ray + Digital Code]",
+      "price": 22.5,
+      "description": "In an alternate world gone mad, the Man of Steel takes control of the Earth for humanity's own good. Determined to stop him, Batman creates an army of heroes willing to pay any price for freedom.",
+      "id": 1633852861538
+    },
+    {
+      "title": "WINTERHAWK (BLU-RAY) - MOVIE",
+      "price": 31.5,
+      "description": "Die Blackfoot-Indianer in Kanada sind an Pocken erkrankt. Huptling Winterhawk wei, dass nur die Weien ein Heilmittel besitzen. Bepackt mit Pelzen macht er sich auf zu den Bergsiedlern in Montana.Das erwnschte Tauschgeschft kommt aber nicht zustande, denn Demtigungen und Verrat warten auf Winterhawk in der Siedlung der Weien. Seine Pelze werden gestohlen. Der Huptling schwrt Rache und kehrt bald mit einigen Kriegern seines Stammes zurck...Pidax prsentiert mit Winterhawk einen weiteren realistischen Sptwestern von Regisseur Charles B. Pierce (Am heiligen Grund).",
+      "id": 1633852891294
+    },
+    {
+      "title": "The Christmas Doctor",
+      "price": 15,
+      "description": "Zoey is a traveling doctor who prefers short assignments to staying put, so when she is assigned to a small town clinic for the holidays, she is surprised when she starts to feel at home.",
+      "id": 1633852925219
+    },
+    {
+      "title": "In Her Shoes",
+      "price": 6.6,
+      "description": "Two sisters who have only one thing in common--their shoe size--have a falling out that leads both in surprising new directions.",
+      "id": 1633852965935
     }
   ]
 }
